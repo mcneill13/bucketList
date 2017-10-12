@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      bucketList
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<h2>{{this.items?.question}}</h2>
+
+
+<button ion-button full large color="dark" *ngIf="(this.items?.option1 | json) != 'null'" (click)="putOption1(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.option1}}<br/>
+  <button *ngIf="(this.items?.option1 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent1 | number : '1.1-1'}}%</button></p></button>
+
+<button ion-button full large color="dark" *ngIf="(this.items?.option2 | json) != 'null'" (click)="putOption2(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.option2}}<br/>
+  <button *ngIf="(this.items?.option2 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent2 | number : '1.1-1'}}%</button></p></button>
+
+<button ion-button full large color="dark" *ngIf="(this.items?.option3 | json) != 'null'" (click)="putOption3(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.option3}}<br/>
+  <button *ngIf="(this.items?.option3 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent3 | number : '1.1-1'}}%</button></p></button>
+  
+<button ion-button full large color="dark" *ngIf="(this.items?.option4 | json) != 'null'" (click)="putOption4(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.option4}}<br/>
+  <button *ngIf="(this.items?.option4 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent4 | number : '1.1-1'}}%</button></p></button>
+<br/>
+<div text-center><button ion-button large color="dark" (click)="getWDYT()">Generate New</button></div>
+<br/>
+
+</ion-content>

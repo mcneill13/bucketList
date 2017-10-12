@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      bucketList
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>{{this.items?.question}}</h2>
+
+<br/>
+<div text-center><button ion-button full large color="dark" (click)="putSubject1(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.subject1}}<br/><span [ngClass]="{'hidden': disabledButton === 0 }">{{percent1 | number : '1.1-1'}}%</span></p></button></div>
+<br/>
+<div text-center><button ion-button full large color="dark" (click)="putSubject2(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.subject2}}<br/><span [ngClass]="{'hidden': disabledButton === 0 }">{{percent2 | number : '1.1-1'}}%</span></p></button></div>
+<br/>
+<div text-center><button ion-button large color="dark" (click)="getPosts()">Generate New</button></div>
+
+</ion-content>
+
+<!-- <div [ngClass]="{'hidden': disabledButton === 0 }">{{percent1 | number : '1.1-1'}}%</div> -->
