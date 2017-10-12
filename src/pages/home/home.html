@@ -8,7 +8,8 @@
 
 <ion-content padding>
  
-<h2>Choose a game to play</h2>
+<div text-center><h2>Choose a game</h2></div>
+<hr/>
 
 
   <!--<h2>{{this.items?.question}}</h2>
@@ -19,9 +20,9 @@
 <button ion-button color="dark" (click)="putSubject1(1)" [ngClass]="{'disabled': disabledButton === 1 }">{{this.items?.subject1}}</button>
 <button ion-button color="dark" (click)="putSubject2(1)" [ngClass]="{'disabled': disabledButton === 1 }">{{this.items?.subject2}}</button>
 <br/>-->
-<button ion-button color="dark" (click)="openWhoWouldWin()">Who Would Win?</button>
-<button ion-button color="dark" (click)="openWhatDoYouThink()">What Do You Think?</button>
-<button ion-button color="dark" (click)="openWouldYouBreakUp()">Would You Break-Up?</button>
+<div text-center><button ion-button color="dark" (click)="openWhatDoYouThink()">What Do You Think?</button></div>
+<div text-center><button ion-button color="dark" (click)="openWhoWouldWin()">This vs That</button></div>
+<div text-center><button ion-button color="dark" (click)="openWouldYouBreakUp()">Would You Break-Up?</button></div>
 <!-- <button ion-button color="dark" (click)="openWhoWouldWin()">Play - Would You Rather?</button> -->
 
 

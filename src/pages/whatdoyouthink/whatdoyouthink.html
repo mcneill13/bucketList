@@ -18,11 +18,11 @@
 
 <button ion-button full large color="dark" *ngIf="(this.items?.option3 | json) != 'null'" (click)="putOption3(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.option3}}<br/>
   <button *ngIf="(this.items?.option3 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent3 | number : '1.1-1'}}%</button></p></button>
-  
+
 <button ion-button full large color="dark" *ngIf="(this.items?.option4 | json) != 'null'" (click)="putOption4(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.option4}}<br/>
   <button *ngIf="(this.items?.option4 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent4 | number : '1.1-1'}}%</button></p></button>
 <br/>
-<div text-center><button ion-button large color="dark" (click)="getWDYT()">Generate New</button></div>
+<div text-center><button ion-button large color="dark" (click)="getWDYT()">Next&nbsp;<ion-icon name="arrow-forward"></ion-icon></button></div>
 <br/>
 
 </ion-content>
