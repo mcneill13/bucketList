@@ -19,6 +19,7 @@ export class WouldYouBreakUpPage {
   total: number;
   percent1: number;
   percent2: number;
+  last: number;
 
   constructor(public navCtrl: NavController, private bucketListService:bucketListService, public params:NavParams, public http: Http) {
     //this.item = params.get();
@@ -39,13 +40,26 @@ export class WouldYouBreakUpPage {
 
   getWYBU(){
     this.disabledButton = 0;
+    //this.last = 0;
     console.log('getWYBU ran...');
     this.bucketListService.getWYBU().subscribe(response => {
-          //console.log(response);
           this.items = response;
           console.log("i can see data here: ", this.items);
       });
+
   }
+  
+  //ORIGINAL WYBU
+  // getWYBU(){
+  //   this.disabledButton = 0;
+  //   //this.last = 0;
+  //   console.log('getWYBU ran...');
+  //   this.bucketListService.getWYBU().subscribe(response => {
+  //         this.items = response;
+  //         console.log("i can see data here: ", this.items);
+  //     });
+
+  // }
 
   putOption1(newValue: number){
     if (this.disabledButton === newValue) {

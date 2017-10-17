@@ -14,3 +14,35 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+//HEADER QUESTION
+.header-question-wrapper{
+    border-radius:25px;
+    border: thick solid #222;
+    //background: #1dcaff;
+    padding:10px;
+}
+.header-question{
+    margin-top:20px;
+    text-align:center;
+}
+
+
+//OPTION BUTTONS
+.option_text{
+    font-size:60%;
+}
+.button-wrap{
+    white-space: inherit;
+    //float:left;
+}
+.hidden{
+    visibility:hidden;
+}
+.disabled{
+    pointer-events: none;
+    //visibility: hidden;
+}
+.selected{
+    background-color:green;
+}

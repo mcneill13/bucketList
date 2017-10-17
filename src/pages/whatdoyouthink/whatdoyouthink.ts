@@ -15,6 +15,7 @@ export class WhatDoYouThinkPage {
   items: any;
   highlightedDiv: number;
   disabledButton: number;
+  selectedButton: number;
   log: number;
   total: number;
   percent: number;
@@ -36,6 +37,7 @@ export class WhatDoYouThinkPage {
   }
 
   getWDYT(){
+    this.selectedButton = 0;
     this.disabledButton = 0;
     console.log('getWDYT ran...');
     this.bucketListService.getWDYT().subscribe(response => {
@@ -43,6 +45,15 @@ export class WhatDoYouThinkPage {
           this.items = response;
           console.log("i can see data here: ", this.items);
       });
+  }
+
+  changeColor(newValue: number){
+    if(this.selectedButton === newValue){
+      this.selectedButton = 0;
+    }else{
+      this.selectedButton = newValue;
+    }
+    console.log('change color');
   }
 
   putOption1(newValue: number){

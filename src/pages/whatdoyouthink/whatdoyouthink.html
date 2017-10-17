@@ -7,22 +7,50 @@
 </ion-header>
 
 <ion-content padding>
-<h2>{{this.items?.question}}</h2>
+  <div class="header-question-wrapper">
+    <h2 class="header-question">{{this.items?.question}}</h2>
+  </div>
+  <hr/>
 
+  <button ion-button full large color="dark" 
+  *ngIf="(this.items?.option1 | json) != 'null'" 
+  (click)="putOption1(1); changeColor(1)" 
+  [ngClass]="{'disabled': disabledButton === 1, 'selected': selectedButton === 1 }" class="button-wrap">
+  <p class="option_text">{{this.items?.option1}}<br/>
+    <span *ngIf="(this.items?.option1 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent1 | number : '1.1-1'}}%</span>
+    </p>
+  </button>
 
-<button ion-button full large color="dark" *ngIf="(this.items?.option1 | json) != 'null'" (click)="putOption1(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.option1}}<br/>
-  <button *ngIf="(this.items?.option1 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent1 | number : '1.1-1'}}%</button></p></button>
+  <button ion-button full large color="dark" 
+  *ngIf="(this.items?.option2 | json) != 'null'" 
+  (click)="putOption2(1); changeColor(2)" 
+  [ngClass]="{'disabled': disabledButton === 1, 'selected': selectedButton === 2 }" class="button-wrap">
+  <p class="option_text">{{this.items?.option2}}<br/>
+    <span *ngIf="(this.items?.option2 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent2 | number : '1.1-1'}}%</span>
+    </p>
+  </button>
 
-<button ion-button full large color="dark" *ngIf="(this.items?.option2 | json) != 'null'" (click)="putOption2(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.option2}}<br/>
-  <button *ngIf="(this.items?.option2 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent2 | number : '1.1-1'}}%</button></p></button>
+  <button ion-button full large color="dark" 
+  *ngIf="(this.items?.option3 | json) != 'null'" 
+  (click)="putOption3(1); changeColor(3)" 
+  [ngClass]="{'disabled': disabledButton === 1, 'selected': selectedButton === 3 }" class="button-wrap">
+  <p class="option_text">{{this.items?.option3}}<br/>
+    <span *ngIf="(this.items?.option3 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent3 | number : '1.1-1'}}%</span>
+    </p>
+  </button>
 
-<button ion-button full large color="dark" *ngIf="(this.items?.option3 | json) != 'null'" (click)="putOption3(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.option3}}<br/>
-  <button *ngIf="(this.items?.option3 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent3 | number : '1.1-1'}}%</button></p></button>
+  <button ion-button full large color="dark" 
+  *ngIf="(this.items?.option4 | json) != 'null'" 
+  (click)="putOption4(1); changeColor(4)" 
+  [ngClass]="{'disabled': disabledButton === 1, 'selected': selectedButton === 4 }" class="button-wrap">
+  <p class="option_text">{{this.items?.option4}}<br/>
+    <span *ngIf="(this.items?.option4 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent4 | number : '1.1-1'}}%</span>
+    </p>
+  </button>
 
-<button ion-button full large color="dark" *ngIf="(this.items?.option4 | json) != 'null'" (click)="putOption4(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.option4}}<br/>
-  <button *ngIf="(this.items?.option4 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent4 | number : '1.1-1'}}%</button></p></button>
-<br/>
-<div text-center><button ion-button large color="dark" (click)="getWDYT()">Next&nbsp;<ion-icon name="arrow-forward"></ion-icon></button></div>
-<br/>
+  <br/>
+  <div text-center><button ion-button large color="dark" (click)="getWDYT()">Next&nbsp;<ion-icon name="arrow-forward"></ion-icon></button></div>
+  <br/>
+
 
 </ion-content>

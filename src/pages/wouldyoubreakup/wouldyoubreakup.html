@@ -9,11 +9,45 @@
 <ion-content padding>
 <h2>Would you break up {{this.items?.question}}</h2>
 
+
+
+<!-- 
+Original button
 <button ion-button full large color="dark" *ngIf="(this.items?.subject1 | json) != 'null'" (click)="putOption1(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.subject1}}<br/>
-  <button *ngIf="(this.items?.option1 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent1 | number : '1.1-1'}}%</button></p></button>
+  <span *ngIf="(this.items?.option1 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent1 | number : '1.1-1'}}%</span></p></button> 
+-->
+
+<!--
+  Card Attempt
+<ion-card *ngIf="(this.items?.subject1 | json) != 'null'" (click)="putOption1(1)" [ngClass]="{'disabled': disabledButton === 1 }"><ion-card-header>{{this.items?.subject1}}</ion-card-header><ion-card-content>{{percent1 | number : '1.1-1'}}%</ion-card-content></ion-card>
+-->
+
+<table>
+  <th>
+    <tr>{{this.items?.subject1}}</tr>
+    <tr><button ion-button full large color="dark" *ngIf="(this.items?.subject2 | json) != 'null'" (click)="putOption2(1)" [ngClass]="{'disabled': disabledButton === 1 }">{{this.items?.subject2}}</button></tr>
+  </th>
+  <th>
+    <tr>{{percent1 | number : '1.1-1'}}%</tr>
+    <tr>{{percent2 | number : '1.1-1'}}%</tr>
+  </th>
+</table>
+
+<ion-list>
+    <ion-item>
+      Left Icon Button
+      <button ion-button outline item-end icon-left>
+        <ion-icon name="star"></ion-icon>
+        Left Icon
+      </button>
+    </ion-item>
+  </ion-list>
+
+
+
 <button ion-button full large color="dark" *ngIf="(this.items?.subject2 | json) != 'null'" (click)="putOption2(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.subject2}}<br/>
-  <button *ngIf="(this.items?.option2 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent2 | number : '1.1-1'}}%</button></p></button>
-  
+  <span *ngIf="(this.items?.option2 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent2 | number : '1.1-1'}}%</span></p></button>
+
 <br/>
 <div text-center><button ion-button large color="dark" (click)="getWYBU()">Next&nbsp;<ion-icon name="arrow-forward"></ion-icon></button></div>
 <br/>
