@@ -50,7 +50,38 @@
 
   <br/>
   <div text-center><button ion-button large color="dark" (click)="getWDYT()">Next&nbsp;<ion-icon name="arrow-forward"></ion-icon></button></div>
-  <br/>
+  <hr/>
+  <!--
+    https://valor-software.com/ng2-charts/
+    https://www.joshmorony.com/adding-responsive-charts-graphs-to-ionic-2-applications/
+  -->
+  <ion-card>
+      <ion-card-header>
+        Bar Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #barCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+    <ion-card>
+      <ion-card-header>
+        Doughnut Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #doughnutCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+    <ion-card>
+      <ion-card-header>
+        Line Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+
 
 
 </ion-content>

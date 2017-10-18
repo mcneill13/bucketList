@@ -1,0 +1,37 @@
+<ion-header>
+        <ion-navbar>
+          <ion-title>
+            bucketList
+          </ion-title>
+        </ion-navbar>
+      </ion-header>
+      
+      <ion-content padding>
+       
+      <div text-center>
+        <h2>Data Entry</h2>
+      </div>
+      <hr/>
+      
+
+      <form [formGroup]="todo" (ngSubmit)="setData();">
+          <ion-item>
+            <ion-label>Value</ion-label>
+            <ion-input type="text" formControlName="title"></ion-input>
+          </ion-item>
+          <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
+        </form>
+      
+        <!-- <button ion-button (click)="setData()">Set Data</button> -->
+        <button ion-button (click)="getData()">Get Data</button>
+        
+
+        <!-- 
+        Notes:
+        Can I see inside mySQLlite? 
+        Can I store big json arrays? 
+        How will I store multiple different things? 
+        -->
+        
+      </ion-content>
+      

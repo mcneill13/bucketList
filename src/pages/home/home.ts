@@ -6,12 +6,13 @@ import { bucketListService } from '../../app/services/bucketList.service';
 import { WhoWouldWinPage } from '../whowouldwin/whowouldwin';
 import { WhatDoYouThinkPage } from '../whatdoyouthink/whatdoyouthink';
 import { WouldYouBreakUpPage } from '../wouldyoubreakup/wouldyoubreakup';
- 
+import { DataEntryPage } from '../dataentry/dataentry';
+
 
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
 })
 export class HomePage {
   items: any;
@@ -19,8 +20,7 @@ export class HomePage {
   disabledButton: number;
 
   constructor(public navCtrl: NavController, private bucketListService:bucketListService, public params:NavParams, public http: Http) {
-    //this.item = params.get();
-    //this.getPosts();
+    
   }
 
   ngOnInit(){
@@ -29,7 +29,7 @@ export class HomePage {
   }
 
   openWhoWouldWin(){
-      this.navCtrl.push(WhoWouldWinPage);
+    this.navCtrl.push(WhoWouldWinPage);
   }
 
   openWhatDoYouThink(){
@@ -39,6 +39,14 @@ export class HomePage {
   openWouldYouBreakUp(){
     this.navCtrl.push(WouldYouBreakUpPage);
   }
+
+  openDataEntry(){
+    this.navCtrl.push(DataEntryPage);
+  }
+
+  
+
+  
 
   // getPosts(){
   //   this.disabledButton = 0;

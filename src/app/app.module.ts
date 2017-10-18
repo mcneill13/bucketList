@@ -9,10 +9,13 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 //pages
 import { WhoWouldWinPage } from '../pages/whowouldwin/whowouldwin';
 import { WhatDoYouThinkPage } from '../pages/whatdoyouthink/whatdoyouthink';
 import { WouldYouBreakUpPage } from '../pages/wouldyoubreakup/wouldyoubreakup';
+import {DataEntryPage} from '../pages/dataentry/dataentry';
 
 
 @NgModule({
@@ -22,11 +25,13 @@ import { WouldYouBreakUpPage } from '../pages/wouldyoubreakup/wouldyoubreakup';
     WhoWouldWinPage,
     WhatDoYouThinkPage,
     WouldYouBreakUpPage,
+    DataEntryPage,
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -35,6 +40,7 @@ import { WouldYouBreakUpPage } from '../pages/wouldyoubreakup/wouldyoubreakup';
     WhoWouldWinPage,
     WhatDoYouThinkPage,
     WouldYouBreakUpPage,
+    DataEntryPage,
   ],
   providers: [
     StatusBar,
