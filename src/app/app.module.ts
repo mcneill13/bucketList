@@ -9,7 +9,10 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+
+//Modules
 import { IonicStorageModule } from '@ionic/storage';
+import { File } from '@ionic-native/file';
 
 //pages
 import { WhoWouldWinPage } from '../pages/whowouldwin/whowouldwin';
@@ -45,6 +48,7 @@ import {DataEntryPage} from '../pages/dataentry/dataentry';
   providers: [
     StatusBar,
     SplashScreen,
+    File,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

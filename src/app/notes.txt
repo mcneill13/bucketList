@@ -1,0 +1,122 @@
+PUT NOTES FROM ALL DOCUMENTS AND OTHER SHIT IN HERE:
+
+used git CLI to do the git commands
+Ionic steps
+Followed steps on the ionic pro dashboard
+followed these steps
+https://gist.github.com/adamjohnson/5682757 - added ssh key in ionic pro
+
+
+
+INSTRUCTIONS FOR DEPLOYING A NEW BUILD:
+
+
+INSTRUCTIONS FOR INSTALLING NEW PACKAGES:
+http://ionicframework.com/docs/native/file/
+
+INSTRUCTIONS FOR ?
+
+*these might be dated with new ionic native app
+INSTRUCTIONS FOR RUNNING ON ANDROID
+ionic cordova run android -lc
+encountered SDK errors, so I can updated in Android Studio...
+encountered error: "could not find gradle wrapper within android SDK"
+cordova platform update android@6.2.2 
+(https://stackoverflow.com/questions/42668185/could-not-find-gradle-wrapper-within-android-sdk-might-need-to-update-your-andr)
+(https://cordova.apache.org/announcements/2017/04/28/android-release.html)
+CPU does not support Intel HAXM, so I need to test the device physically...
+USING PERSONAL DEVICE: https://ionicframework.com/docs/intro/deploying/
+CHECK CONSOLE WITH CHROME TO DEBUG: https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3 
+Inspect a tab for the new window, then run ionic cordova run android --device --livereload
+settings files android data com.ionicframework files
+
+INSTRUCTIONS FOR CREATING A NEW DIRECTORY AND FILE ON ANDROID. THEN WRITING TO THAT FILE
+console.log(this.file);
+console.log(cordova.file);
+this.file.createDir(cordova.file.externalDataDirectory, 'themDocs', true);
+this.file.checkDir(cordova.file.externalDataDirectory, 'themDocs').then(_ => console.log('Directory exists1')).catch(err => console.log('Directory doesnt exist1'));
+console.log(this.file.listDir(cordova.file.externalDataDirectory, ''));
+this.file.createFile(cordova.file.externalDataDirectory + '/themDocs', 'abc.txt', true);
+then you can use writeExistingFile: this.file.writeExistingFile(cordova.file.externalDataDirectory + '/themDocs', 'abc.txt', this.theJSON);  
+to create a file AND write to it, use writeFile, I could not get that to work
+Several read functions, i used: console.log(this.file.readAsText(cordova.file.externalDataDirectory + '/themDocs/', 'abc.txt'));
+Cordova file guide: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-file/ 
+
+
+CHECKFILE SOLUTION
+https://github.com/ionic-team/ionic-native/issues/1800
+
+COMMANDS
+ionic cordova platform add browser
+ionic cordova run browser
+ionic lab
+ionic serve
+ionic cordova run browser --livereload
+
+STORAGE NOTES
+import { Storage } from '@ionic/storage';
+
+
+
+
+FILE READ/WRITE NOTES
+Add it to the app.module.ts as a provider?
+import { File } from '@ionic-native/file';
+declare var cordova:any;
+
+
+
+
+
+
+
+
+
+------------------
+who would win
+would you breakup
+what do you think (questions book) (peed or yawned more)
+would you rather
+would you do it
+which super power would you rather have
+
+
+Who would win
+type: in a knife fight, in a mario kart race
+X or Y
+
+
+Content Type: Type of fight - Title
+Content Type: Contender - Title (name), level (X, 1, 2, 3, 4, 5)
+
+
+
+What is the difference between who would win and what do you think? Some who would wins are just competitions 
+
+
+
+
+Regarding CORS Errors:
+I installed the CORS module and used this line: myrestapi/*|<mirror>|PUT|Content-Type
+Then I took out all CORS stuff from custom modules
+
+used git CLI to do the git commands
+Ionic steps
+Followed steps on the ionic pro dashboard
+followed these steps
+https://gist.github.com/adamjohnson/5682757 - added ssh key in ionic pro
+
+
+
+git update steps:
+git add .
+git commit -m "this is commit 2"
+git push ionic master
+
+
+
+-------
+next to do
+make bar chart numbers accurate
+add thumbs up / thumbs down based on popular vs non popular response
+make all games the same, then start finalizing content? 

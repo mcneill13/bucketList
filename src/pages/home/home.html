@@ -10,24 +10,26 @@
  
 <div text-center>
   <h4>v1.0</h4>
-  <h2>Choose a game</h2>
+  <h2>Demo</h2>
 </div>
 <hr/>
 
+<!-- 
+Make a separate app for work 
+store json data in a notepad
 
-  <!--<h2>{{this.items?.question}}</h2>
-  <h3>{{this.items?.subject1}} vs {{this.items?.subject2}}</h3>
+Charts, thumbs up/down notice
 
-<button ion-button color="dark" (click)="getPosts()">Generate New</button>
-<br/>
-<button ion-button color="dark" (click)="putSubject1(1)" [ngClass]="{'disabled': disabledButton === 1 }">{{this.items?.subject1}}</button>
-<button ion-button color="dark" (click)="putSubject2(1)" [ngClass]="{'disabled': disabledButton === 1 }">{{this.items?.subject2}}</button>
-<br/>-->
-<div text-center><button ion-button color="dark" (click)="openWhatDoYouThink()">What Do You Think?</button></div>
+-->
+<!-- <div text-center><button ion-button color="dark" (click)="openWhatDoYouThink()">What Do You Think?</button></div>
 <div text-center><button ion-button color="dark" (click)="openWhoWouldWin()">This vs That</button></div>
-<div text-center><button ion-button color="dark" (click)="openWouldYouBreakUp()">Would You Break-Up?</button></div>
+<div text-center><button ion-button color="dark" (click)="openWouldYouBreakUp()">Would You Break-Up?</button></div> -->
 <hr/>
+<div text-center><button ion-button color="dark" (click)="generateDirectories()">Generate Directories</button></div>
 <div text-center><button ion-button color="dark" (click)="openDataEntry()">Data Entry</button></div>
+  <p>Folders called "randomization" and "patients" have been created in device application storage</p>
+  <p>When you hit "Data Entry", a file called patient_data.txt will be created inside the patients directory. A file called random.txt will be created in the randomization directory.</p>
+  <p>On the Data Entry page, enter PATID, Date, and confirmation. Pressing "Store data in text file" will store that information with the next value from random.txt inside a JSON string paitent_data.txt</p>
 
 <!-- <table>
   <th>

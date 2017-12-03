@@ -7,7 +7,9 @@ import { WhoWouldWinPage } from '../whowouldwin/whowouldwin';
 import { WhatDoYouThinkPage } from '../whatdoyouthink/whatdoyouthink';
 import { WouldYouBreakUpPage } from '../wouldyoubreakup/wouldyoubreakup';
 import { DataEntryPage } from '../dataentry/dataentry';
+import { File } from '@ionic-native/file';
 
+declare var cordova:any;
 
 
 @Component({
@@ -19,13 +21,22 @@ export class HomePage {
   highlightedDiv: number;
   disabledButton: number;
 
-  constructor(public navCtrl: NavController, private bucketListService:bucketListService, public params:NavParams, public http: Http) {
+  constructor(public navCtrl: NavController, private bucketListService:bucketListService, public params:NavParams, public http: Http,private file: File) {
     
   }
 
+  
+
   ngOnInit(){
     console.log('init ran...');
+    //Generate directories for data entry
+    
     //this.getPosts();
+  }
+
+  generateDirectories(){
+    this.file.createDir(cordova.file.externalDataDirectory, 'patients', true);
+    this.file.createDir(cordova.file.externalDataDirectory, 'randomization', true);
   }
 
   openWhoWouldWin(){

@@ -8,30 +8,51 @@
       
       <ion-content padding>
        
-      <div text-center>
-        <h2>Data Entry</h2>
-      </div>
-      <hr/>
-      
 
-      <form [formGroup]="todo" (ngSubmit)="setData();">
-          <ion-item>
-            <ion-label>Value</ion-label>
-            <ion-input type="text" formControlName="title"></ion-input>
-          </ion-item>
-          <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
-        </form>
+      <h2>Protcol ABC123</h2>
+      <p>Special instructions go here</p>
+      <hr/>
+
+
+      <!-- ngModel Forms -->
+      <form (ngSubmit)="setData()">
+        <ion-item>
+          <ion-label>Patient ID (PATID)</ion-label>
+          <ion-input type="text" [(ngModel)]="todo.patid" name="patid"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Date of Enrollment</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="todo.date" name="date"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Confirm that patient meets all criteria</ion-label>
+          <ion-checkbox [(ngModel)]="todo.confirm" name="confirm"></ion-checkbox>
+        </ion-item>
+        <button ion-button type="submit" block>Store Data in text file</button>
+      </form>
+
+      <!-- This code worked great before I started editing it for work -->
+        <!-- <form (ngSubmit)="setData()">
+            <ion-item>
+              <ion-label>Username</ion-label>
+              <ion-input type="text" [(ngModel)]="todo.username" name="username"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Some Data</ion-label>
+              <ion-textarea [(ngModel)]="todo.data" name="data"></ion-textarea>
+            </ion-item>
+            <ion-item>
+              <ion-label>Date of Enrollment</ion-label>
+              <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="todo.date" name="date"></ion-datetime>
+            </ion-item>
+            <button ion-button type="submit" block>Store Data in text file</button>
+          </form> -->
       
         <!-- <button ion-button (click)="setData()">Set Data</button> -->
-        <button ion-button (click)="getData()">Get Data</button>
-        
+        <button ion-button (click)="checkNextRandom()">Check next randomization value</button>
+        <button ion-button (click)="setRandomization()">Reset Randomization File</button>
+        <button ion-button (click)="readPatientData()">Read patient_data.txt</button>
 
-        <!-- 
-        Notes:
-        Can I see inside mySQLlite? 
-        Can I store big json arrays? 
-        How will I store multiple different things? 
-        -->
         
       </ion-content>
       
