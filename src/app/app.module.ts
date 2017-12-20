@@ -11,14 +11,18 @@ import { HomePage } from '../pages/home/home';
 
 
 //Modules
-import { IonicStorageModule } from '@ionic/storage';
-import { File } from '@ionic-native/file';
+//import { IonicStorageModule } from '@ionic/storage';
+//import { File } from '@ionic-native/file';
+//import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
+//import { AndroidFingerprintAuth } from '@ionic-native/android-fingerprint-auth';
+//import { FileEncryption } from '@ionic-native/file-encryption';
+
 
 //pages
 import { WhoWouldWinPage } from '../pages/whowouldwin/whowouldwin';
 import { WhatDoYouThinkPage } from '../pages/whatdoyouthink/whatdoyouthink';
 import { WouldYouBreakUpPage } from '../pages/wouldyoubreakup/wouldyoubreakup';
-import {DataEntryPage} from '../pages/dataentry/dataentry';
+//import {DataEntryPage} from '../pages/dataentry/dataentry';
 
 
 @NgModule({
@@ -28,13 +32,11 @@ import {DataEntryPage} from '../pages/dataentry/dataentry';
     WhoWouldWinPage,
     WhatDoYouThinkPage,
     WouldYouBreakUpPage,
-    DataEntryPage,
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,12 +45,10 @@ import {DataEntryPage} from '../pages/dataentry/dataentry';
     WhoWouldWinPage,
     WhatDoYouThinkPage,
     WouldYouBreakUpPage,
-    DataEntryPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    File,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

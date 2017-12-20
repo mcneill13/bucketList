@@ -1,14 +1,19 @@
-PUT NOTES FROM ALL DOCUMENTS AND OTHER SHIT IN HERE:
-
-used git CLI to do the git commands
-Ionic steps
-Followed steps on the ionic pro dashboard
-followed these steps
-https://gist.github.com/adamjohnson/5682757 - added ssh key in ionic pro
-
-
+organize these notes
+cleanup enrollment page, change dialogue, user login, file encryption, fingerprint auth, make new app
 
 INSTRUCTIONS FOR DEPLOYING A NEW BUILD:
+Use GIT CLI
+git add *
+git commit -m "this is commit 2"
+git push ionic master
+Followed steps on the ionic pro dashboard
+https://gist.github.com/adamjohnson/5682757 - added ssh key in ionic pro
+WAIT FOR IT TO BUILD! - then deploy
+
+TO GET IT ON PHONE
+ionic cordova run android - then find the .apk file and email it to self
+ionic view
+ionic devapp
 
 
 INSTRUCTIONS FOR INSTALLING NEW PACKAGES:
@@ -46,6 +51,17 @@ Cordova file guide: https://cordova.apache.org/docs/en/latest/reference/cordova-
 CHECKFILE SOLUTION
 https://github.com/ionic-team/ionic-native/issues/1800
 
+ERROR: Unmet peer dependency, ionic native was wrong version
+https://forum.ionicframework.com/t/unmet-peer-dependency-ionic-native-core-3-12-1/107114/10
+https://stackoverflow.com/questions/43117086/how-to-update-ionic-native-to-vers-3x
+
+FINGERPRINT SHIT
+https://www.youtube.com/watch?v=tQDChMJ6er8
+
+LOG IN 
+https://devdactic.com/login-ionic-2/
+https://www.youtube.com/watch?v=PNzE1MX5iRU
+
 COMMANDS
 ionic cordova platform add browser
 ionic cordova run browser
@@ -65,8 +81,10 @@ import { File } from '@ionic-native/file';
 declare var cordova:any;
 
 
-
-
+starting brand new project
+ionic start emmesEnrollment sidemenu
+tried to run some native shit and it gave an android SDK path error. instead of using the old fix, i tried to set it all up like: https://cordova.apache.org/docs/en/latest/guide/platforms/android/
+updated all android studio BS
 
 
 

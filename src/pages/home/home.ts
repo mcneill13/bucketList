@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Platform } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 //import { RedditService } from '../../app/services/reddit.service';
 import { bucketListService } from '../../app/services/bucketList.service';
@@ -21,22 +21,13 @@ export class HomePage {
   highlightedDiv: number;
   disabledButton: number;
 
-  constructor(public navCtrl: NavController, private bucketListService:bucketListService, public params:NavParams, public http: Http,private file: File) {
-    
-  }
 
-  
+  constructor(private platform: Platform,  public navCtrl: NavController, private bucketListService:bucketListService, public params:NavParams, public http: Http,private file: File) {
+
+  }
 
   ngOnInit(){
     console.log('init ran...');
-    //Generate directories for data entry
-    
-    //this.getPosts();
-  }
-
-  generateDirectories(){
-    this.file.createDir(cordova.file.externalDataDirectory, 'patients', true);
-    this.file.createDir(cordova.file.externalDataDirectory, 'randomization', true);
   }
 
   openWhoWouldWin(){
@@ -50,14 +41,6 @@ export class HomePage {
   openWouldYouBreakUp(){
     this.navCtrl.push(WouldYouBreakUpPage);
   }
-
-  openDataEntry(){
-    this.navCtrl.push(DataEntryPage);
-  }
-
-  
-
-  
 
   // getPosts(){
   //   this.disabledButton = 0;

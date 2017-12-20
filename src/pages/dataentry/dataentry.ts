@@ -10,6 +10,10 @@ import { File } from '@ionic-native/file';
 //import { knownFolders, Folder } from "file-system";
 //import { Plugin, pluginWarn } from './plugin';
 import { AlertController } from 'ionic-angular';
+import { FileEncryption } from '@ionic-native/file-encryption';
+
+//import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
+//import { AndroidFingerprintAuth } from '@ionic-native/android-fingerprint-auth';
 declare var cordova:any;
 var aaa = 'hehe';
 @Component({
@@ -31,12 +35,11 @@ export class DataEntryPage {
     items: any;
     private fb: FormGroup; //Forms with FormBuilder
 
-    constructor(public navCtrl: NavController, private bucketListService:bucketListService, public params:NavParams, public http: Http, private storage: Storage, private formBuilder: FormBuilder, private file: File, private alertCtrl: AlertController) {
-      //Form Builder
-      this.fb = this.formBuilder.group({
-        title: ['', Validators.required],
-        description: [''],
-      });
+    constructor(public navCtrl: NavController, private bucketListService:bucketListService, public params:NavParams, public http: Http, private storage: Storage, private formBuilder: FormBuilder, private file: File, private alertCtrl: AlertController, private fileEncryption: FileEncryption) {
+
+
+      console.log(this.fileEncryption.encrypt(cordova.file.externalDataDirectory + 'patients/patient_data.txt', 'key'));
+      
     }
 
   ngOnInit(){
@@ -46,6 +49,7 @@ export class DataEntryPage {
     //this.file.createDir(cordova.file.externalDataDirectory, 'randomization', true);
 
     //Check if patient_data exists and make it 
+    /*
     this.file.checkFile(cordova.file.externalDataDirectory + 'patients/', 'patient_data.txt').then(
       res => true,
       err => false
@@ -76,7 +80,13 @@ export class DataEntryPage {
             this.file.writeFile(cordova.file.externalDataDirectory + 'randomization/', 'random.txt', this.theNumbers);
           }
         });
+        */
+
+        //console.log(this.fileEncryption.decrypt('assets/json/topSecret.json', 'secretKey'));
+        console.log(this.fileEncryption.encrypt(cordova.file.externalDataDirectory + 'patients/patient_data.txt', 'key'));
   }
+
+  
 
   setData(){
     //Log form results, stringify it, then parse it out to grab individual elements
