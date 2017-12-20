@@ -39,110 +39,7 @@ export class WhatDoYouThinkPage {
   }
 
 
-  ionViewDidLoad() {
-    
-           this.barChart = new Chart(this.barCanvas.nativeElement, {
-    
-               type: 'bar',
-               data: {
-                   labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                   datasets: [{
-                       label: '# of Votes',
-                       data: [12, 19, 3, 5, 2, 3],
-                       backgroundColor: [
-                           'rgba(255, 99, 132, 0.2)',
-                           'rgba(54, 162, 235, 0.2)',
-                           'rgba(255, 206, 86, 0.2)',
-                           'rgba(75, 192, 192, 0.2)',
-                           'rgba(153, 102, 255, 0.2)',
-                           'rgba(255, 159, 64, 0.2)'
-                       ],
-                       borderColor: [
-                           'rgba(255,99,132,1)',
-                           'rgba(54, 162, 235, 1)',
-                           'rgba(255, 206, 86, 1)',
-                           'rgba(75, 192, 192, 1)',
-                           'rgba(153, 102, 255, 1)',
-                           'rgba(255, 159, 64, 1)'
-                       ],
-                       borderWidth: 1
-                   }]
-               },
-               options: {
-                   scales: {
-                       yAxes: [{
-                           ticks: {
-                               beginAtZero:true
-                           }
-                       }]
-                   }
-               }
-    
-           });
-    
-           this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
-    
-               type: 'doughnut',
-               data: {
-                   labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                   datasets: [{
-                       label: '# of Votes',
-                       data: [12, 19, 3, 5, 2, 3],
-                       backgroundColor: [
-                           'rgba(255, 99, 132, 0.2)',
-                           'rgba(54, 162, 235, 0.2)',
-                           'rgba(255, 206, 86, 0.2)',
-                           'rgba(75, 192, 192, 0.2)',
-                           'rgba(153, 102, 255, 0.2)',
-                           'rgba(255, 159, 64, 0.2)'
-                       ],
-                       hoverBackgroundColor: [
-                           "#FF6384",
-                           "#36A2EB",
-                           "#FFCE56",
-                           "#FF6384",
-                           "#36A2EB",
-                           "#FFCE56"
-                       ]
-                   }]
-               }
-    
-           });
-    
-           this.lineChart = new Chart(this.lineCanvas.nativeElement, {
-    
-               type: 'line',
-               data: {
-                   labels: ["January", "February", "March", "April", "May", "June", "July"],
-                   datasets: [
-                       {
-                           label: "My First dataset",
-                           fill: false,
-                           lineTension: 0.1,
-                           backgroundColor: "rgba(75,192,192,0.4)",
-                           borderColor: "rgba(75,192,192,1)",
-                           borderCapStyle: 'butt',
-                           borderDash: [],
-                           borderDashOffset: 0.0,
-                           borderJoinStyle: 'miter',
-                           pointBorderColor: "rgba(75,192,192,1)",
-                           pointBackgroundColor: "#fff",
-                           pointBorderWidth: 1,
-                           pointHoverRadius: 5,
-                           pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                           pointHoverBorderColor: "rgba(220,220,220,1)",
-                           pointHoverBorderWidth: 2,
-                           pointRadius: 1,
-                           pointHitRadius: 10,
-                           data: [65, 59, 80, 81, 56, 55, 40],
-                           spanGaps: false,
-                       }
-                   ]
-               }
-    
-           });
-    
-       }
+  
       
 
   ngOnInit(){
@@ -171,6 +68,7 @@ export class WhatDoYouThinkPage {
   }
 
   putOption1(newValue: number){
+    var this_vote = 1;
     if (this.disabledButton === newValue) {
       this.disabledButton = 0;
     }
@@ -199,9 +97,11 @@ export class WhatDoYouThinkPage {
     this.percent2 = (Number(this.items.value2) / this.total) * 100;
     this.percent3 = (Number(this.items.value3) / this.total) * 100;
     this.percent4 = (Number(this.items.value4) / this.total) * 100;
+    this.displayBar(this.items.option3, this.items.option4, this.items.value1, this.items.value2, this.items.value3, this.items.value4, this_vote);
   }
 
   putOption2(newValue: number){
+    var this_vote = 2;
     if (this.disabledButton === newValue) {
       this.disabledButton = 0;
     }
@@ -230,9 +130,11 @@ export class WhatDoYouThinkPage {
     this.percent2 = (new_value2 / this.total) * 100;
     this.percent3 = (Number(this.items.value3) / this.total) * 100;
     this.percent4 = (Number(this.items.value4) / this.total) * 100;
+    this.displayBar(this.items.option3, this.items.option4, this.items.value1, this.items.value2, this.items.value3, this.items.value4, this_vote);
   }
 
   putOption3(newValue: number){
+    var this_vote = 3;
     if (this.disabledButton === newValue) {
       this.disabledButton = 0;
     }
@@ -261,9 +163,11 @@ export class WhatDoYouThinkPage {
     this.percent2 = (Number(this.items.value2) / this.total) * 100;
     this.percent3 = (new_value3 / this.total) * 100;
     this.percent4 = (Number(this.items.value4) / this.total) * 100;
+    this.displayBar(this.items.option3, this.items.option4, this.items.value1, this.items.value2, this.items.value3, this.items.value4, this_vote);
   }
 
   putOption4(newValue: number){
+    var this_vote = 4;
     if (this.disabledButton === newValue) {
       this.disabledButton = 0;
     }
@@ -293,6 +197,127 @@ export class WhatDoYouThinkPage {
     this.percent2 = (Number(this.items.value2) / this.total) * 100;
     this.percent3 = (Number(this.items.value3) / this.total) * 100;
     this.percent4 = (new_value4 / this.total) * 100;
+    this.displayBar(this.items.option3, this.items.option4, this.items.value1, this.items.value2, this.items.value3, this.items.value4, this_vote);
+  }
+
+  displayBar(o3, o4, v1, v2, v3, v4, this_vote){
+    //0, 128, 0, 1
+    var color_one = 'rgba(34, 34, 34, 1)';
+    var color_two = 'rgba(34, 34, 34, 1)';
+    var color_three = 'rgba(34, 34, 34, 1)';
+    var color_four = 'rgba(34, 34, 34, 1)';
+    if(this_vote == 1){
+        color_one = 'rgba(0, 128, 0, 1)';
+    }
+    if(this_vote == 2){
+        color_two = 'rgba(0, 128, 0, 1)';
+    }
+    if(this_vote == 3){
+        color_three = 'rgba(0, 128, 0, 1)';
+    }
+    if(this_vote == 4){
+        color_four = 'rgba(0, 128, 0, 1)';
+    }
+
+      if(o3 == null){
+        this.barChart = new Chart(this.barCanvas.nativeElement, {
+            type: 'bar',
+            data: {
+                labels: ["1", "2"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [v1, v2],
+                    backgroundColor: [
+                        color_one,
+                        color_two,
+                    ],
+                    borderColor: [
+                        'rgba(34, 34, 34, 1)',
+                        'rgba(34, 34, 34, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+    
+        });
+      }else if(o4 == null){
+        this.barChart = new Chart(this.barCanvas.nativeElement, {
+            type: 'bar',
+            data: {
+                labels: ["1", "2", "3"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [v1, v2, v3],
+                    backgroundColor: [
+                        color_one,
+                        color_two,
+                        color_three,
+                    ],
+                    borderColor: [
+                        'rgba(34, 34, 34, 1)',
+                        'rgba(34, 34, 34, 1)',
+                        'rgba(34, 34, 34, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+    
+        });
+      }else{
+        this.barChart = new Chart(this.barCanvas.nativeElement, {
+            type: 'bar',
+            data: {
+                labels: ["1", "2", "3", "4"],
+                datasets: [{
+                    label: 'Votes',
+                    data: [v1, v2, v3, v4],
+                    backgroundColor: [
+                        color_one,
+                        color_two,
+                        color_three,
+                        color_four,
+                    ],
+                    borderColor: [
+                        'rgba(34, 34, 34, 1)',
+                        'rgba(34, 34, 34, 1)',
+                        'rgba(34, 34, 34, 1)',
+                        'rgba(34, 34, 34, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+    
+        });
+      }
+      
+    
   }
 
   

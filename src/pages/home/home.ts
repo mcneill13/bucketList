@@ -6,8 +6,8 @@ import { bucketListService } from '../../app/services/bucketList.service';
 import { WhoWouldWinPage } from '../whowouldwin/whowouldwin';
 import { WhatDoYouThinkPage } from '../whatdoyouthink/whatdoyouthink';
 import { WouldYouBreakUpPage } from '../wouldyoubreakup/wouldyoubreakup';
-import { DataEntryPage } from '../dataentry/dataentry';
-import { File } from '@ionic-native/file';
+// import { DataEntryPage } from '../dataentry/dataentry';
+// import { File } from '@ionic-native/file';
 
 declare var cordova:any;
 
@@ -22,7 +22,7 @@ export class HomePage {
   disabledButton: number;
 
 
-  constructor(private platform: Platform,  public navCtrl: NavController, private bucketListService:bucketListService, public params:NavParams, public http: Http,private file: File) {
+  constructor(private platform: Platform,  public navCtrl: NavController, private bucketListService:bucketListService, public params:NavParams, public http: Http) {
 
   }
 
