@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      bucketList
+      Wonder
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -9,36 +9,43 @@
 <ion-content padding>
  
 <div text-center>
-  <h4>v1.0</h4>
-  <h2>Demo</h2>
+  <h2>Choose your game</h2>
 </div>
-<hr/>
-<!-- 
-Make a separate app for work 
-store json data in a notepad
 
-Charts, thumbs up/down notice
+<ion-card (click)="openWhatDoYouThink()">
+  <img src="http://dev-mcneill13d7.pantheonsite.io/sites/default/files/wdyt2_d.jpg"/>
+  <ion-card-content>
+    <ion-card-title>
+      What Do You Think?
+      </ion-card-title>
+    <p>
+      Ridiculous questions with preset answers. Would you play a game of Russian Roullette for $10 million? Would you take a pill to  learn every language if it meant your life was cut in half? 
+    </p>
+  </ion-card-content>
+</ion-card>
 
--->
-<div text-center><button ion-button color="dark" (click)="openWhatDoYouThink()">What Do You Think?</button></div>
-<div text-center><button ion-button color="dark" (click)="openWhoWouldWin()">This vs That</button></div>
-<div text-center><button ion-button color="dark" (click)="openWouldYouBreakUp()">Would You Break-Up?</button></div>
-<hr/>
-<!-- <div text-center><button ion-button color="dark" (click)="generateDirectories()">Generate Directories</button></div>
-<div text-center><button ion-button color="dark" (click)="openDataEntry()">Data Entry</button></div>
-  <p>Folders called "randomization" and "patients" have been created in device application storage</p>
-  <p>When you hit "Data Entry", a file called patient_data.txt will be created inside the patients directory. A file called random.txt will be created in the randomization directory.</p>
-  <p>On the Data Entry page, enter PATID, Date, and confirmation. Pressing "Store data in text file" will store that information with the next value from random.txt inside a JSON string paitent_data.txt</p> -->
-
-<!-- <table>
-  <th>
-    <tr>xd</tr>
-    <tr>xd2</tr>
-  </th>
-  <th>
-    <tr>sfaf</tr>
-    <tr>dxgsagd</tr>
-  </th>
-</table> -->
+<ion-card (click)="openWhoWouldWin()">
+  <img src="http://dev-mcneill13d7.pantheonsite.io/sites/default/files/tvt3_d.jpg"/>
+  <ion-card-content>
+    <ion-card-title>
+      This vs That
+      </ion-card-title>
+    <p>
+      Random questions and scenarios that pit one thing against another. Who would win in a mile race, Jon Snow or LeBron James? Who has better hair, Armin Van Buuren or Barack Obama? 
+    </p>
+  </ion-card-content>
+</ion-card>
   
+<ion-card (click)="openWouldYouBreakUp()">
+  <img src="http://dev-mcneill13d7.pantheonsite.io/sites/default/files/bu1_d.jpg"/>
+  <ion-card-content>
+    <ion-card-title>
+      Would You Break-Up?
+      </ion-card-title>
+    <p>
+      These can be deal-breakers for some people, just answers yes or no! If they were allergic to dogs? If they slept with their boss for a huge raise?
+    </p>
+  </ion-card-content>
+</ion-card>
+
 </ion-content>

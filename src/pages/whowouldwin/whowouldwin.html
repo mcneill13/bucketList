@@ -6,16 +6,46 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>{{this.items?.question}}</h2>
 
-<br/>
-<div text-center><button ion-button full large color="dark" (click)="putSubject1(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.subject1}}<br/><span [ngClass]="{'hidden': disabledButton === 0 }">{{percent1 | number : '1.1-1'}}%</span></p></button></div>
-<br/>
-<div text-center><button ion-button full large color="dark" (click)="putSubject2(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.subject2}}<br/><span [ngClass]="{'hidden': disabledButton === 0 }">{{percent2 | number : '1.1-1'}}%</span></p></button></div>
+<!-- Should I put pictures with every entry? -->
+<ion-content padding>
+  <div class="header-question-wrapper">
+    <h2 class="header-question">{{this.items?.question}}</h2>
+  </div>
+  <hr/>
+
+  <button ion-button full large color="dark" 
+  *ngIf="(this.items?.subject1 | json) != 'null'" 
+  (click)="putSubject1(1); changeColor(1)" 
+  [ngClass]="{'disabled': disabledButton === 1, 'selected': selectedButton === 1 }" class="button-wrap">
+  <p class="option_text">{{this.items?.subject1}}<br/>
+    <span *ngIf="(this.items?.subject1 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent1 | number : '1.1-1'}}%</span>
+  </p>
+  </button>
+
+  <button ion-button full large color="dark" 
+  *ngIf="(this.items?.subject2 | json) != 'null'" 
+  (click)="putSubject2(1); changeColor(2)" 
+  [ngClass]="{'disabled': disabledButton === 1, 'selected': selectedButton === 2 }" class="button-wrap">
+  <p class="option_text">{{this.items?.subject2}}<br/>
+    <span *ngIf="(this.items?.subject2 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent2 | number : '1.1-1'}}%</span>
+  </p>
+  </button>
+
 <br/>
 <div text-center><button ion-button large color="dark" (click)="getPosts()">Next&nbsp;<ion-icon name="arrow-forward"></ion-icon></button></div>
+<br/>
 
+<div [ngClass]="{'hidden': disabledButton === 0 }">
+  <ion-card>
+      <!-- <ion-card-header>
+        Bar Chart
+      </ion-card-header> -->
+      <ion-card-content>
+        <canvas #barCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
 
 <!-- <div [ngClass]="{'hidden': disabledButton === 0 }">{{percent1 | number : '1.1-1'}}%</div> -->

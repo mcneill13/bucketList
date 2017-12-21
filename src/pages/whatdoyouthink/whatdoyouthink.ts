@@ -38,10 +38,6 @@ export class WhatDoYouThinkPage {
     //this.getPosts();
   }
 
-
-  
-      
-
   ngOnInit(){
     console.log('whatdoyouthink init ran...');
     this.getWDYT();
@@ -225,7 +221,7 @@ export class WhatDoYouThinkPage {
             data: {
                 labels: ["1", "2"],
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'Votes',
                     data: [v1, v2],
                     backgroundColor: [
                         color_one,
@@ -255,7 +251,7 @@ export class WhatDoYouThinkPage {
             data: {
                 labels: ["1", "2", "3"],
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'Votes',
                     data: [v1, v2, v3],
                     backgroundColor: [
                         color_one,

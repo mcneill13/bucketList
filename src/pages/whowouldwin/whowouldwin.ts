@@ -1,9 +1,9 @@
-import { Component, Pipe } from '@angular/core';
+import { Component, Pipe, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
-//import { RedditService } from '../../app/services/reddit.service';
 import { bucketListService } from '../../app/services/bucketList.service';
-//import {Pipe} from 'angular/core';
+import { Chart } from 'chart.js';
+
 
 
 @Component({
@@ -19,19 +19,16 @@ export class WhoWouldWinPage {
   total: number;
   percent1: number;
   percent2: number;
+  selectedButton: any;
+
+  @ViewChild('barCanvas') barCanvas;
+  barChart: any;
+
 
   constructor(public navCtrl: NavController, private bucketListService:bucketListService, public params:NavParams, public http: Http) {
     //this.item = params.get();
     //this.getPosts();
   }
-
-
-//   logRadio(element: HTMLInputElement): void{
-//         //this.log += `Radio ${element.value} was selected\n`
-//         this.log = 'major boners';
-//   }
-
-  //getSubject1
 
   ngOnInit(){
     console.log('whowouldwin init ran...');
@@ -39,6 +36,7 @@ export class WhoWouldWinPage {
   }
 
   getPosts(){
+    this.selectedButton = 0;
     this.disabledButton = 0;
     console.log('getposts ran...');
     this.bucketListService.getPosts().subscribe(response => {
@@ -48,17 +46,17 @@ export class WhoWouldWinPage {
       });
   }
 
-//   getUpdatedPosts(){
-//     this.disabledButton = 0;
-//     console.log('getUpdatedPosts ran...');
-//     this.bucketListService.getPosts().subscribe(response => {
-//           //console.log(response);
-//           this.items = response;
-//           //console.log("i can see data here: ", this.items);
-//       });
-//   }
+  changeColor(newValue: number){
+    if(this.selectedButton === newValue){
+      this.selectedButton = 0;
+    }else{
+      this.selectedButton = newValue;
+    }
+    console.log('change color');
+  }
 
   putSubject1(newValue: number){
+    var this_vote = 1;
     if (this.disabledButton === newValue) {
       this.disabledButton = 0;
     }
@@ -85,9 +83,11 @@ export class WhoWouldWinPage {
     this.total = Number(this.items.value1) + Number(this.items.value2);
     this.percent1 = (new_value1 / this.total) * 100;
     this.percent2 = 100 - this.percent1;
+    this.displayBar(this.items.value1, this.items.value2, this_vote);
   }
 
   putSubject2(newValue: number){
+    var this_vote = 2;
     if (this.disabledButton === newValue) {
       this.disabledButton = 0;
     }
@@ -114,6 +114,54 @@ export class WhoWouldWinPage {
     this.total = Number(this.items.value1) + Number(this.items.value2);
     this.percent2 = (new_value2 / this.total) * 100;
     this.percent1 = 100 - this.percent2;
+    this.displayBar(this.items.value1, this.items.value2, this_vote);
+  }
+
+
+  displayBar(v1, v2, this_vote){
+    //0, 128, 0, 1
+    var color_one = 'rgba(34, 34, 34, 1)';
+    var color_two = 'rgba(34, 34, 34, 1)';
+    if(this_vote == 1){
+        color_one = 'rgba(0, 128, 0, 1)';
+    }
+    if(this_vote == 2){
+        color_two = 'rgba(0, 128, 0, 1)';
+    }
+
+    this.barChart = new Chart(this.barCanvas.nativeElement, {
+      type: 'bar',
+      data: {
+          labels: ["1", "2"],
+          datasets: [{
+              label: 'Votes',
+              data: [v1, v2],
+              backgroundColor: [
+                  color_one,
+                  color_two,
+              ],
+              borderColor: [
+                  'rgba(34, 34, 34, 1)',
+                  'rgba(34, 34, 34, 1)',
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+
+  });
+
+      
+      
+    
   }
 
 }

@@ -7,20 +7,51 @@
 </ion-header>
 
 <ion-content padding>
-<h2>Would you break up {{this.items?.question}}</h2>
+  <div class="header-question-wrapper">
+    <h2 class="header-question">{{this.items?.question}}</h2>
+  </div>
+  <hr/>
+
+  <button ion-button full large color="dark" 
+  *ngIf="(this.items?.subject1 | json) != 'null'" 
+  (click)="putSubject1(1); changeColor(1)" 
+  [ngClass]="{'disabled': disabledButton === 1, 'selected': selectedButton === 1 }" class="button-wrap">
+  <p class="option_text">{{this.items?.subject1}}<br/>
+    <span *ngIf="(this.items?.subject1 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent1 | number : '1.1-1'}}%</span>
+  </p>
+  </button>
+
+  <button ion-button full large color="dark" 
+  *ngIf="(this.items?.subject2 | json) != 'null'" 
+  (click)="putSubject2(1); changeColor(2)" 
+  [ngClass]="{'disabled': disabledButton === 1, 'selected': selectedButton === 2 }" class="button-wrap">
+  <p class="option_text">{{this.items?.subject2}}<br/>
+    <span *ngIf="(this.items?.subject2 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent2 | number : '1.1-1'}}%</span>
+  </p>
+  </button>
+
+<br/>
+<div text-center><button ion-button large color="dark" (click)="getWYBU()">Next&nbsp;<ion-icon name="arrow-forward"></ion-icon></button></div>
+<br/>
+
+<div [ngClass]="{'hidden': disabledButton === 0 }">
+  <ion-card>
+      <!-- <ion-card-header>
+        Bar Chart
+      </ion-card-header> -->
+      <ion-card-content>
+        <canvas #barCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
 
 
-
-<!-- 
-Original button
-<button ion-button full large color="dark" *ngIf="(this.items?.subject1 | json) != 'null'" (click)="putOption1(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.subject1}}<br/>
-  <span *ngIf="(this.items?.option1 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent1 | number : '1.1-1'}}%</span></p></button> 
--->
 
 <!--
   Card Attempt
 <ion-card *ngIf="(this.items?.subject1 | json) != 'null'" (click)="putOption1(1)" [ngClass]="{'disabled': disabledButton === 1 }"><ion-card-header>{{this.items?.subject1}}</ion-card-header><ion-card-content>{{percent1 | number : '1.1-1'}}%</ion-card-content></ion-card>
--->
+
 
 <table>
   <th>
@@ -42,15 +73,4 @@ Original button
       </button>
     </ion-item>
   </ion-list>
-
-
-
-<button ion-button full large color="dark" *ngIf="(this.items?.subject2 | json) != 'null'" (click)="putOption2(1)" [ngClass]="{'disabled': disabledButton === 1 }"><p>{{this.items?.subject2}}<br/>
-  <span *ngIf="(this.items?.option2 | json) != 'null'" [ngClass]="{'hidden': disabledButton === 0 }">{{percent2 | number : '1.1-1'}}%</span></p></button>
-
-<br/>
-<div text-center><button ion-button large color="dark" (click)="getWYBU()">Next&nbsp;<ion-icon name="arrow-forward"></ion-icon></button></div>
-<br/>
-
-
-</ion-content>
+-->
